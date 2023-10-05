@@ -19,7 +19,6 @@ class BiggenerController extends GetxController {
   Future<List> fetch_data() async {
     final url = get_biggeners;
     var request = await http.get(Uri.parse(url));
-    print(request.body);
     if (request.statusCode == 200) {
       List result = List<Map<String, dynamic>>.from(json.decode(request.body));
       return result;
