@@ -76,6 +76,7 @@ class DiffStyles extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: black.withOpacity(0.3)),
                             maxLines: 2,
+                            textDirection: TextDirection.rtl,
                           ),
                         ],
                       ),
@@ -126,13 +127,9 @@ class DiffStyles extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
               horizontal: appPadding, vertical: appPadding),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'مشاهده همه',
-                style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.w800, color: primary),
-              ),
+              
               Text(
                 'مبتدی هستی؟',
                 style: TextStyle(

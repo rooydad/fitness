@@ -110,7 +110,7 @@ class Courses extends StatelessWidget {
                       color: primary),
                 ),
                 Text(
-                  'دوره های بیشتر',
+                  'حرفه‌ای باش',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
