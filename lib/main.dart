@@ -1,6 +1,6 @@
+import 'package:fitnass/screens/splash/splashscreen.dart';
 import 'package:flutter/material.dart';
-import '/screens/login/login_screen.dart';
-
+import 'package:get/get.dart';
 void main() {
   runApp(MyApp());
 }
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Yoga App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //Hello How are you
-      home: LoginScreen(),
+      home: SplashPage(),
     );
   }
 }

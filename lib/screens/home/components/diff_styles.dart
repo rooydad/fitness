@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '/constants/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+// ignore: must_be_immutable
 class DiffStyles extends StatelessWidget {
   BiggenerController controller = Get.put(BiggenerController());
 
