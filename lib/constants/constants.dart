@@ -11,3 +11,6 @@ const Color blueGrey = Colors.blueGrey;
 //padding
 
 const double appPadding = 20.0;
+
+const Color primaryColor = const Color(0xFF296E48);
+const Color blackColor = Colors.black54;
