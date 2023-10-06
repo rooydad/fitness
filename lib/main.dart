@@ -1,3 +1,5 @@
+import 'package:fitnass/screens/home/home_screen.dart';
+import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:fitnass/screens/profile/profile_page.dart';
 import 'package:fitnass/screens/register/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //Hello How are you
-      home: ProfilePage(),
+      home: MainPageView(),
     );
   }
 }

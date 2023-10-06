@@ -90,11 +90,16 @@ class SignUpCredentials extends StatelessWidget {
             height: size.height * 0.04,
           ),
           Center(
-            child: Text(
-              'ورود به برنامه ',
-              style: TextStyle(
-                fontSize: 18,
-                color: black.withOpacity(0.4),
+            child: RichText(
+              textDirection: TextDirection.rtl,
+              textScaleFactor: 1,
+              
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style.copyWith(color: Colors.blue),
+                text: 'حساب کاربری دارید؟',
+                children: [
+                  TextSpan(text: 'وارد شوید!',style: TextStyle(color: Colors.purple))
+                ]
               ),
             ),
           ),
