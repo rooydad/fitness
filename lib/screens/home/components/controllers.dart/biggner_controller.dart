@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:fitnass/const.dart';
+import 'package:fitnass/constants/const.dart';
 import 'package:http/http.dart' as http;
 
 class BiggenerController extends GetxController {

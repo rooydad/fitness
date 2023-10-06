@@ -1,4 +1,5 @@
 import 'package:fitnass/screens/login/components/components/controllers/login_controller.dart';
+import 'package:fitnass/screens/register/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/constants/constants.dart';
@@ -78,11 +79,16 @@ class LoginCredentials extends StatelessWidget {
           SizedBox(
             height: size.height * 0.04,
           ),
-          Center(
-            child: Text(
-              'ایجاد حساب کاربری جدید',
-              style: TextStyle(
-                  fontSize: 18, color: black.withOpacity(0.4),),
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>SignUpScreen());
+            },
+            child: Center(
+              child: Text(
+                'ایجاد حساب کاربری جدید',
+                style: TextStyle(
+                    fontSize: 18, color: black.withOpacity(0.4),),
+              ),
             ),
           ),
           SizedBox(

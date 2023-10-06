@@ -38,7 +38,7 @@ class SignUpCredentials extends StatelessWidget {
                 fillColor: white,
                 hintText: 'نام',
                 suffixIcon: Icon(
-                  Icons.email_outlined,
+                  Icons.person_outline,
                   size: 25.0,
                   color: black.withOpacity(0.4),
                 ),
@@ -54,7 +54,7 @@ class SignUpCredentials extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
               controller: controller.emailController,
-              obscureText: true,
+              
               decoration: InputDecoration(
                 border: const OutlineInputBorder(borderSide: BorderSide.none),
                 contentPadding: const EdgeInsets.symmetric(
@@ -62,7 +62,7 @@ class SignUpCredentials extends StatelessWidget {
                 fillColor: Colors.white,
                 hintText: 'ایمیل',
                 suffixIcon: Icon(
-                  Icons.lock_outline,
+                  Icons.email_outlined,
                   size: 25.0,
                   color: black.withOpacity(0.4),
                 ),
