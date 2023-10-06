@@ -1,8 +1,12 @@
 import 'package:fitnass/constants/constants.dart';
-import 'package:fitnass/screens/home/home_screen.dart';
+import 'package:fitnass/screens/login/login_screen.dart';
+import 'package:fitnass/screens/register/components/controllers/signup_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class SignUpCredentials extends StatelessWidget {
+  SignupController controller = Get.put(SignupController());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,12 +30,13 @@ class SignUpCredentials extends StatelessWidget {
             color: white,
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
+              controller: controller.nameController,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(borderSide: BorderSide.none),
                 contentPadding: const EdgeInsets.symmetric(
                     vertical: appPadding * 0.75, horizontal: appPadding),
                 fillColor: white,
-                hintText: 'نام کاربری',
+                hintText: 'نام',
                 suffixIcon: Icon(
                   Icons.email_outlined,
                   size: 25.0,
@@ -48,6 +53,7 @@ class SignUpCredentials extends StatelessWidget {
             color: white,
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
+              controller: controller.emailController,
               obscureText: true,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(borderSide: BorderSide.none),
@@ -71,6 +77,7 @@ class SignUpCredentials extends StatelessWidget {
             color: white,
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
+              controller: controller.passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(borderSide: BorderSide.none),
@@ -89,17 +96,19 @@ class SignUpCredentials extends StatelessWidget {
           SizedBox(
             height: size.height * 0.04,
           ),
-          Center(
-            child: RichText(
-              textDirection: TextDirection.rtl,
-              textScaleFactor: 1,
-              
-              text: TextSpan(
-                style: DefaultTextStyle.of(context).style.copyWith(color: Colors.blue),
-                text: 'حساب کاربری دارید؟',
-                children: [
-                  TextSpan(text: 'وارد شوید!',style: TextStyle(color: Colors.purple))
-                ]
+          GestureDetector(
+            onTap: (){Get.to(()=>LoginScreen());},
+            child: Center(
+              child: RichText(
+                textDirection: TextDirection.rtl,
+                textScaleFactor: 1,
+                text: TextSpan(
+                  style: DefaultTextStyle.of(context).style.copyWith(color: Colors.blue),
+                  text: 'حساب کاربری دارید؟',
+                  children: [
+                    TextSpan(text: 'وارد شوید!',style: TextStyle(color: Colors.purple))
+                  ]
+                ),
               ),
             ),
           ),
@@ -107,12 +116,9 @@ class SignUpCredentials extends StatelessWidget {
             height: size.height * 0.04,
           ),
           InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-              ),
-            ),
+            onTap: () {
+              controller.DoSignUp();
+            },
             child: Material(
               elevation: 10.0,
               shadowColor: primary,

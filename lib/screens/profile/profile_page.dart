@@ -1,24 +1,21 @@
 import 'package:fitnass/constants/constants.dart';
+import 'package:fitnass/screens/profile/components/controllers/profile_controller.dart';
 import 'package:fitnass/screens/profile/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class ProfilePage extends StatelessWidget {
+  
+  ProfileController controller = Get.put(ProfileController());
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.dark
-      ),
+          statusBarColor: Colors.white,
+          statusBarBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.dark),
     );
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -92,9 +89,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    BuildOptions(title: 'پروفایل من', icon: Icons.person),
-                    BuildOptions(title: 'تنظیمات', icon: Icons.settings),
+                  children:  [
+                    BuildOptions(
+                        title: 'تغییر تصویر پروفایل', icon: Icons.person),
+                    GestureDetector(
+                      onTap:(){
+                        controller.ChangeAppTheme();
+                      },
+                      child: BuildOptions(title: 'حالت شب/روز', icon: Icons.settings)),
                     BuildOptions(
                         title: 'اطلاع رسانی‌ها', icon: Icons.notifications),
                     BuildOptions(

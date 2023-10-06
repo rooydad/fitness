@@ -1,4 +1,4 @@
-import 'package:fitnass/screens/splash/controllers/splash_controller.dart';
+import 'package:fitnass/screens/splash/components/controllers/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

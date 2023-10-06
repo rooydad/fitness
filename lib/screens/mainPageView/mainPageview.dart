@@ -3,7 +3,7 @@ import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/mainPageView/components/controllers/pageview_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+
 
 class MainPageView extends StatelessWidget {
   PageViewController controller = Get.put(PageViewController());

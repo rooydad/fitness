@@ -1,10 +1,13 @@
+import 'package:fitnass/screens/login/components/components/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '/constants/constants.dart';
 import '/screens/home/home_screen.dart';
 
 
 
 class LoginCredentials extends StatelessWidget {
+    LoginController controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
 
@@ -29,6 +32,7 @@ class LoginCredentials extends StatelessWidget {
             color: white,
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
+              controller: controller.emailcontroller,
               decoration: InputDecoration(
                 border:
                 const OutlineInputBorder(borderSide: BorderSide.none),
@@ -53,6 +57,7 @@ class LoginCredentials extends StatelessWidget {
             color: white,
             borderRadius: BorderRadius.circular(30.0),
             child: TextField(
+              controller: controller.passwordcontroller,
               obscureText: true,
               decoration: InputDecoration(
                 border:
@@ -84,12 +89,7 @@ class LoginCredentials extends StatelessWidget {
             height: size.height * 0.04,
           ),
           InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-              ),
-            ),
+            onTap: () {controller.DoLogin();},
             child: Material(
                 elevation: 10.0,
                 shadowColor: primary,

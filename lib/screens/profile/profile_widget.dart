@@ -29,7 +29,7 @@ class BuildOptions extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontFamily: 'IranSans',
+                  fontFamily: 'yekan',
                   color: blackColor,
                   fontSize: 18.0,
                   fontWeight: FontWeight.w600,
