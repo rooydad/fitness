@@ -19,7 +19,7 @@ class BackgroundImg extends StatelessWidget {
               vertical: appPadding * 3),
           child: Center(
             child: Image(
-              image: AssetImage('assets/images/yoga.png'),
+              image: AssetImage('assets/images/signup.png'),
               fit: BoxFit.cover,
             ),
           ),
