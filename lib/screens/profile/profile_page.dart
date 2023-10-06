@@ -1,6 +1,7 @@
 import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/profile/profile_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,6 +13,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark
+      ),
+    );
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -21,7 +29,9 @@ class _ProfilePageState extends State<ProfilePage> {
         width: size.width,
         child: Column(
           children: [
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
             // profile image
             Container(
               width: 150.0,
@@ -85,8 +95,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: const [
                     BuildOptions(title: 'پروفایل من', icon: Icons.person),
                     BuildOptions(title: 'تنظیمات', icon: Icons.settings),
-                    BuildOptions(title: 'اطلاع رسانی‌ها', icon: Icons.notifications),
-                    BuildOptions(title: 'شبکه‌های اجتماعی', icon: Icons.share_rounded),
+                    BuildOptions(
+                        title: 'اطلاع رسانی‌ها', icon: Icons.notifications),
+                    BuildOptions(
+                        title: 'شبکه‌های اجتماعی', icon: Icons.share_rounded),
                     BuildOptions(title: 'خروج', icon: Icons.logout),
                   ],
                 ),
