@@ -1,0 +1,1 @@
+const get_biggeners = 'https://amirrezakhezerlou.ir/fitness/get_beginner.php';

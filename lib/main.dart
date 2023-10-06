@@ -1,4 +1,3 @@
-import 'package:fitnass/screens/register/signup_page.dart';
 import 'package:flutter/material.dart';
 import '/screens/login/login_screen.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //Hello How are you
-      home: SignUpScreen(),
+      home: LoginScreen(),
     );
   }
 }

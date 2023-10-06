@@ -3,7 +3,6 @@ import '/constants/constants.dart';
 import '/data/data.dart';
 import '/models/course.dart';
 
-
 class Courses extends StatelessWidget {
   Widget _buildCourses(BuildContext context, int index) {
     Size size = MediaQuery.of(context).size;
@@ -28,23 +27,12 @@ class Courses extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: size.width * 0.3,
-                height: size.height * 0.2,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image(
-                    image: AssetImage(course.imageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Container(
                 width: size.width * 0.4,
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      left: appPadding / 2, top: appPadding / 1.5),
+                      right: appPadding / 2, top: appPadding / 1.5),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
                         course.name,
@@ -53,35 +41,72 @@ class Courses extends StatelessWidget {
                           fontSize: 16,
                         ),
                         maxLines: 2,
+                        overflow: TextOverflow.fade,
+                        textDirection: TextDirection.rtl,
                       ),
                       SizedBox(
                         height: size.height * 0.01,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(Icons.folder_open_rounded,color: black.withOpacity(0.3),),
+                          Text(
+                            course.students,
+                            style: TextStyle(
+                              color: black.withOpacity(0.3),
+                            ),
+                            overflow: TextOverflow.fade,
+                            textDirection: TextDirection.rtl,
+                          ),
                           SizedBox(
                             width: size.width * 0.01,
                           ),
-                          Text(course.students,style: TextStyle(color: black.withOpacity(0.3),),)
+                          Icon(
+                            Icons.folder_open_rounded,
+                            color: black.withOpacity(0.3),
+                          ),
                         ],
                       ),
                       SizedBox(
                         height: size.height * 0.01,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(Icons.access_time_outlined,color: black.withOpacity(0.3),),
+                          Text(
+                            course.time.toString() + ' min',
+                            style: TextStyle(
+                              color: black.withOpacity(0.3),
+                            ),
+                            overflow: TextOverflow.fade,
+                            textDirection: TextDirection.rtl,
+                          ),
                           SizedBox(
                             width: size.width * 0.01,
                           ),
-                          Text(course.time.toString() + ' min',style: TextStyle(color: black.withOpacity(0.3),),)
+                          Icon(
+                            Icons.access_time_outlined,
+                            color: black.withOpacity(0.3),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
-              )
+              ),
+              Expanded(
+                child: Container(
+                  width: size.width * 0.3,
+                  height: size.height * 0.2,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image(
+                      image: AssetImage(course.imageUrl),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -110,14 +135,13 @@ class Courses extends StatelessWidget {
                       color: primary),
                 ),
                 Text(
-                  'دوره های بیشتر',
+                  'حرفه‌ای باش',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 1.5,
                   ),
                 ),
-                
               ],
             ),
           ),

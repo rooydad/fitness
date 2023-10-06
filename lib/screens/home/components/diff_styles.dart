@@ -1,13 +1,16 @@
+import 'package:fitnass/screens/home/components/controllers.dart/biggner_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '/constants/constants.dart';
-import '/data/data.dart';
-import '/models/style.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-
+// ignore: must_be_immutable
 class DiffStyles extends StatelessWidget {
+  BiggenerController controller = Get.put(BiggenerController());
+
   _buildStyles(BuildContext context, int index) {
     Size size = MediaQuery.of(context).size;
-    Style style = styles[index];
+    var style = controller.data[index];
 
     return Stack(
       alignment: Alignment.center,
@@ -42,7 +45,7 @@ class DiffStyles extends StatelessWidget {
                       right: appPadding * 3,
                       top: appPadding),
                   child: Text(
-                    style.name,
+                    style['title'],
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -68,22 +71,26 @@ class DiffStyles extends StatelessWidget {
                             width: size.width * 0.01,
                           ),
                           Text(
-                            style.time.toString() + ' دقیقه',
+                            style['time'].toString() + ' دقیقه',
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
                                 color: black.withOpacity(0.3)),
                             maxLines: 2,
+                            textDirection: TextDirection.rtl,
                           ),
                         ],
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: primary,
-                            borderRadius: BorderRadius.circular(5.0)),
-                        child: Icon(
-                          Icons.add,
-                          color: white,
+                      GestureDetector(
+                        onTap: (){},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: primary,
+                              borderRadius: BorderRadius.circular(5.0)),
+                          child: Icon(
+                            Icons.add,
+                            color: white,
+                          ),
                         ),
                       )
                     ],
@@ -96,11 +103,14 @@ class DiffStyles extends StatelessWidget {
         Positioned(
           right: 0,
           top: 0,
+          //  width: size.width * 0.3,
+          //     height: size.height * 0.2,
           child: Container(
-            child: Image(
-              width: size.width * 0.3,
+            child: CachedNetworkImage(
+               width: size.width * 0.3,
               height: size.height * 0.2,
-              image: AssetImage(style.imageUrl),
+              imageUrl: style['pic'],
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
         )
@@ -118,13 +128,9 @@ class DiffStyles extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
               horizontal: appPadding, vertical: appPadding),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'مشاهده همه',
-                style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.w800, color: primary),
-              ),
+              
               Text(
                 'مبتدی هستی؟',
                 style: TextStyle(
@@ -133,7 +139,6 @@ class DiffStyles extends StatelessWidget {
                   letterSpacing: 1.5,
                 ),
               ),
-              
             ],
           ),
         ),
@@ -141,13 +146,15 @@ class DiffStyles extends StatelessWidget {
           padding: const EdgeInsets.only(left: appPadding / 2),
           child: Container(
             height: size.height * 0.33,
-            child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: styles.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildStyles(context, index);
-                }),
+            child: Obx(
+              () => ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return _buildStyles(context, index);
+                  }),
+            ),
           ),
         )
       ],
