@@ -33,7 +33,10 @@ class SplashController extends GetxController {
     var Values = {"email": email};
     var request = await http.post(Uri.parse(url), body: Values);
     if (request.statusCode == 200 && request.body != "UserNotFound") {
+      if(request.body !="No"){
       await prefs.setString("profile", request.body);
+      }
+      
       new Future.delayed(const Duration(seconds: 3), () {
         Get.off(() => MainPageView());
       });

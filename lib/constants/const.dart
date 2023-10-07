@@ -3,3 +3,4 @@ const mainAddress = 'https://amirrezakhezerlou.ir';
 const signup = '/fitness/signup.php';
 const login = '/fitness/signin.php';
 const get_profile = '/fitness/get_profile.php';
+const update_profile = '/fitness/update_image.php';

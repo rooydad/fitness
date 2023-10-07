@@ -32,6 +32,7 @@ class SignupController extends GetxController {
       final SharedPreferences prefs = await _prefs;
       await prefs.setString("name", nameController.text);
       await prefs.setString("email", emailController.text);
+      await prefs.setString("profile", "/uploads/246-2469607_unisex-fitness-illustration-illustration.png");
       await prefs.setBool('reged', true);
       Get.off(() => MainPageView());
     } else{

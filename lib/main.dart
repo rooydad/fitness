@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Yoga App',
       debugShowCheckedModeBanner: false,
-     // theme: Get.isDarkMode?ThemeData.light():ThemeData.dark(),
       darkTheme:  ThemeData.dark().copyWith(primaryColor: Colors.red),
       theme: ThemeData(
         fontFamily: 'yekan',
