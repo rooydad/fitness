@@ -94,4 +94,12 @@ class ProfileController extends GetxController {
       return "Failed";
     }
   }
+  void LogOuting()async{
+          SharedPreferences _prefs = await SharedPreferences.getInstance();
+      final SharedPreferences prefs = await _prefs;
+      prefs.remove("reged");
+      prefs.remove("email");
+      prefs.remove("name");
+
+  }
 }

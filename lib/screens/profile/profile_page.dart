@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitnass/constants/const.dart';
 import 'package:fitnass/constants/constants.dart';
+import 'package:fitnass/screens/bmi/input_page.dart';
+import 'package:fitnass/screens/contact/views/contactus.dart';
 import 'package:fitnass/screens/profile/components/controllers/profile_controller.dart';
 import 'package:fitnass/screens/profile/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -96,16 +98,30 @@ class ProfilePage extends StatelessWidget {
                         child: BuildOptions(
                             title: 'تغییر تصویر پروفایل', icon: Icons.person),
                       ),
-                      GestureDetector(
+                      InkWell(
                         onTap:(){
                           
                         },
                         child: BuildOptions(title: 'حالت شب/روز', icon: Icons.settings)),
-                      BuildOptions(
-                          title: 'اطلاع رسانی‌ها', icon: Icons.notifications),
-                      BuildOptions(
-                          title: 'شبکه‌های اجتماعی', icon: Icons.share_rounded),
-                      BuildOptions(title: 'خروج', icon: Icons.logout),
+                      InkWell(
+                        onTap: (){
+                          Get.to(()=>BmiInputPage());
+                        },
+                        child: BuildOptions(
+                            title: 'محاسبه BMI', icon: Icons.notifications),
+                      ),
+                      InkWell(
+                        onTap: (){
+                          Get.to(()=>ContactUs());
+                        },
+                        child: BuildOptions(
+                            title: 'شبکه‌های اجتماعی', icon: Icons.share_rounded),
+                      ),
+                      InkWell(
+                        onTap: (){
+                          controller.LogOuting();
+                        },
+                        child: BuildOptions(title: 'خروج', icon: Icons.logout)),
                     ],
                   ),
                   // end Profile Options
