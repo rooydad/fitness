@@ -1,3 +1,4 @@
+import 'package:fitnass/screens/category/views/category.dart';
 import 'package:fitnass/screens/home/home_screen.dart';
 import 'package:fitnass/screens/profile/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ RxInt selsctedIconIndex = 2.obs;
 PageController controllerofPageview =PageController();
 List<Widget> Pageslist=<Widget>[
     HomeScreen(),
+    CategoryPage(),
     ProfilePage(),
   ];
 
