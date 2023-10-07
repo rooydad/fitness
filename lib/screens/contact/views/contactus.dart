@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactUs extends StatefulWidget {
@@ -157,7 +158,7 @@ class _State extends State<ContactUs> {
 }
 
 _launchURLLinkedIn() async {
-  const url = 'https://linkedin.com';
+  const url = 'https://t.me/AmirrezaKhezerlou';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -166,7 +167,7 @@ _launchURLLinkedIn() async {
 }
 
 _launchURLFacebook() async {
-  const url = 'https://www.facebook.com/hException';
+  const url = 'https://instagram.com/cleancode_ir';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -175,19 +176,18 @@ _launchURLFacebook() async {
 }
 
 _launchURLMedium() async {
-  const url = 'https://medium.com';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+  final Email email = Email(
+  body: '',
+  subject: 'ارتباط با مدیریت',
+  recipients: ['mrkhezerlou@gmail.com'],
+  isHTML: false,
+);
+
+await FlutterEmailSender.send(email);
 }
 
 _launchCaller() async {
-  const url = "tel:09382729583";
-  if (await canLaunch(url)) {
+  const url = "tel:+989382729583";
     await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+   
 }
