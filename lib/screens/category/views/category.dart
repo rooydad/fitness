@@ -25,23 +25,19 @@ class CategoryList extends StatelessWidget {
     return ListView(
       children: [
         CategoryItem(
-          title: 'حرکات پا',
-          color: Colors.blue,
+          title: 'حرکات پا',       
           iconPath: 'assets/foot.svg', // مسیر SVG آیکون حرکات پا
         ),
         CategoryItem(
-          title: 'تقویت شانه',
-          color: Colors.green,
+          title: 'تقویت شانه',     
           iconPath: 'assets/shoulder.svg', // مسیر SVG آیکون تقویت شانه
         ),
         CategoryItem(
           title: 'حرکات باسن',
-          color: Colors.orange,
           iconPath: 'assets/butt.svg', // مسیر SVG آیکون حرکات باسن
         ),
         CategoryItem(
           title: 'حرکات نرمشی',
-          color: Colors.purple,
           iconPath: 'assets/stretch.svg', // مسیر SVG آیکون حرکات نرمشی
         ),
       ],
@@ -51,15 +47,14 @@ class CategoryList extends StatelessWidget {
 
 class CategoryItem extends StatelessWidget {
   final String title;
-  final Color color;
   final String iconPath;
 
-  CategoryItem({required this.title, required this.color, required this.iconPath});
+  CategoryItem({required this.title, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: color,
+      color: Colors.white,
       elevation: 10,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
