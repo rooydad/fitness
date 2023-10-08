@@ -1,139 +1,123 @@
-import 'package:fitnass/screens/product/product_data.dart';
-import 'package:fitnass/screens/product/product_item.dart';
+import 'package:fitnass/constants/constants.dart';
+import 'package:fitnass/screens/product/controllers/shop_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:persian_number_utility/persian_number_utility.dart';
 
+class ShopPage extends StatelessWidget {
+  ShopController controller = Get.put(ShopController());
 
-class ProductHome extends StatefulWidget {
-  @override
-  _ProductHomeState createState() => _ProductHomeState();
-}
-
-class _ProductHomeState extends State<ProductHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/menuicon.png',
-                      height: 25,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(width:10),
+            Stack(
+                children: [
+                  const FaIcon(FontAwesomeIcons.cartShopping,color: Colors.blue,),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(30.0)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Text(
+                        '0',
+                        style: TextStyle(color: white, fontSize: 8),
+                      ),
                     ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                    FaIcon(FontAwesomeIcons.search),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Image.asset(
-                      'assets/shopping-bag-outline.png',
-                      height: 25,
-                    ),
-                  ],
-                ),
+                  )
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Trending',
-                      style:
-                      TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
-                    ),
-                    Text(
-                      'See All',
-                      style:
-                      TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10,
-                          crossAxisSpacing: 20,
-                          childAspectRatio: 0.73),
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ProductItem(),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  width: double.maxFinite,
-                                  decoration: BoxDecoration(
-                                    color: Color(productData[index]['color']),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Center(
-                                    child: Stack(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: CircleAvatar(
-                                            radius: 55,
-                                            backgroundColor: Colors.white,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: CircleAvatar(
-                                            radius: 55,
-                                            backgroundColor:
-                                            Color(productData[index]['color'])
-                                                .withOpacity(0.5),
-                                          ),
-                                        ),
-                                        Image.network(
-                                          productData[index]['image'],
-                                          height: 160,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Text(productData[index]['name'],
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400)),
-                              Text(
-                                r'$' + productData[index]['price'],
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w700),
-                              )
-                            ],
-                          ),
-                        );
-                      }),
-                ),
-              )
-            ],
-          ),
+          ],
         ),
+        title: Text(
+          'کالاهای فروشگاه',
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+      body: Obx(
+        () => GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 2 / 3,
+            crossAxisCount: 2, // تعداد ستون‌ها در GridView
+            crossAxisSpacing: 0, // فاصله بین ستون‌ها
+            mainAxisSpacing: 10.0, // فاصله بین ردیف‌ها
+          ),
+          itemCount: controller.Products.length,
+          itemBuilder: (context, index) {
+            return ProductCard(product: controller.Products[index]);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  final product;
+
+  ProductCard({required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 10, // تنظیم elevation
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0), // ایجاد گوشه‌های خمیده
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.network(
+            product['picture'], // آدرس تصویر از اینترنت
+            height: 120, // ارتفاع تصویر
+            width: 140, // عرض تصویر
+            fit: BoxFit.contain,
+          ),
+          Text(
+            product['name'],
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            'قیمت: ${product['price'].toString().seRagham() + " تومان"}',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.blue, // رنگ قیمت
+            ),
+          ),
+          Text(
+            'موجودی انبار: ${product['inventory']}',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.green, // رنگ موجودی انبار
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                  color: primary, borderRadius: BorderRadius.circular(5.0)),
+              child: Icon(
+                Icons.add,
+                color: white,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

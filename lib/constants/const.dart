@@ -4,3 +4,6 @@ const signup = '/fitness/signup.php';
 const login = '/fitness/signin.php';
 const get_profile = '/fitness/get_profile.php';
 const update_profile = '/fitness/update_image.php';
+const new_tiket = '/fitness/new_tiket.php';
+const get_answers = "/fitness/get_answers.php";
+const get_shop = "/fitness/get_shop.php";

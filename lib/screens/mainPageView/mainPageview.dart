@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/mainPageView/components/controllers/pageview_controller.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class MainPageView extends StatelessWidget {
           backgroundColor: Colors.transparent,
           index: controller.selsctedIconIndex.value,
           buttonBackgroundColor: primary,
-          height: 60.0,
+          height: 75.0,
           color: white,
           onTap: (index) {
             controller.selectedItemChanger(index);
@@ -29,28 +30,20 @@ class MainPageView extends StatelessWidget {
             milliseconds: 200,
           ),
           items: <Widget>[
+           FaIcon(FontAwesomeIcons.userNurse,size: 30,),
             Icon(
-              Icons.play_arrow_outlined,
-              size: 30,
-              color: controller.selsctedIconIndex == 0 ? white : black,
-            ),
-            Icon(
-              Icons.search,
+              Icons.shopping_bag,
               size: 30,
               color: controller.selsctedIconIndex == 1 ? white : black,
             ),
+            FaIcon(FontAwesomeIcons.home,size: 30,),
             Icon(
-              Icons.home_outlined,
-              size: 30,
-              color: controller.selsctedIconIndex == 2 ? white : black,
-            ),
-            Icon(
-              Icons.favorite_border_outlined,
+              Icons.category,
               size: 30,
               color: controller.selsctedIconIndex == 3 ? white : black,
             ),
             Icon(
-              Icons.person_outline,
+              Icons.person,
               size: 30,
               color: controller.selsctedIconIndex == 4 ? white : black,
             ),

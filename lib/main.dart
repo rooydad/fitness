@@ -1,14 +1,8 @@
-import 'package:fitnass/screens/chat/chat_page.dart';
-import 'package:fitnass/screens/home/home_screen.dart';
 import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:fitnass/screens/product/product_home.dart';
-import 'package:fitnass/screens/profile/profile_page.dart';
-import 'package:fitnass/screens/register/signup_page.dart';
 import 'package:fitnass/screens/splash/splashscreen.dart';
-import 'package:fitnass/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/screens/login/login_screen.dart';
 
 void main() {
   runApp(MyApp());
