@@ -7,3 +7,4 @@ const update_profile = '/fitness/update_image.php';
 const new_tiket = '/fitness/new_tiket.php';
 const get_answers = "/fitness/get_answers.php";
 const get_shop = "/fitness/get_shop.php";
+const get_special = "/fitness/get_special.php";

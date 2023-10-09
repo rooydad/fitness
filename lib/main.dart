@@ -1,3 +1,5 @@
+import 'package:fitnass/screens/content/conentpage.dart';
+import 'package:fitnass/screens/intro/intro_slider.dart';
 import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:fitnass/screens/product/product_home.dart';
 import 'package:fitnass/screens/splash/splashscreen.dart';

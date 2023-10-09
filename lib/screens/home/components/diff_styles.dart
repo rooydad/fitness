@@ -1,3 +1,4 @@
+import 'package:fitnass/screens/content/conentpage.dart';
 import 'package:fitnass/screens/home/components/controllers.dart/biggner_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,7 +83,19 @@ class DiffStyles extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
-                        onTap: (){},
+                        onTap: () {
+                          Get.to(
+                            () => ArticlePage(
+                              title: controller.data[index]['title'],
+                              headerUrl: controller.data[index]['wallpaper'],
+                              writer: controller.data[index]['writer'],
+                              category: controller.data[index]['category'],
+                              time: controller.data[index]['time'],
+                              content: controller.data[index]['content'],
+                              level: controller.data[index]['is_beginner'],
+                            ),
+                          );
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                               color: primary,
@@ -107,7 +120,7 @@ class DiffStyles extends StatelessWidget {
           //     height: size.height * 0.2,
           child: Container(
             child: CachedNetworkImage(
-               width: size.width * 0.3,
+              width: size.width * 0.3,
               height: size.height * 0.2,
               imageUrl: style['pic'],
               errorWidget: (context, url, error) => Icon(Icons.error),
@@ -130,7 +143,6 @@ class DiffStyles extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              
               Text(
                 'مبتدی هستی؟',
                 style: TextStyle(

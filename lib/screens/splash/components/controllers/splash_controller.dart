@@ -4,6 +4,7 @@ import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:fitnass/constants/const.dart';
+import 'package:intro_slider/intro_slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashController extends GetxController {
@@ -20,7 +21,7 @@ class SplashController extends GetxController {
       update_profile_again();
     } else {
       new Future.delayed(const Duration(seconds: 3), () {
-        Get.off(() => LoginScreen());
+        Get.off(() => IntroSlider());
       });
     }
   }
