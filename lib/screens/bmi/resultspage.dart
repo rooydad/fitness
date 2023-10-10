@@ -58,7 +58,7 @@ class ResultPage extends StatelessWidget {
             },
             child: Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
-              color: Color(0xFFEB1555),
+              color: Color(0xFFAD1457),
               margin: EdgeInsets.only(top: 10),
               width: double.infinity,
               height: bottomheight,

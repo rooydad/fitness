@@ -44,4 +44,4 @@ const Bodystyle = TextStyle(
 
 const bottomheight = 80.0;
 const ActiveCardColor = Color(0xFF1D1E33);
-const InActiveColor = Color(0xFF111328);
+const InActiveColor = Color(0xFF9C27B0);

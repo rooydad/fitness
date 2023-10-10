@@ -46,212 +46,217 @@ class _BmiInputPageState extends State<BmiInputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(centerTitle: true,
-        title: Text('BMI',style: TextStyle(color: Colors.black),),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'BMI',
+          style: TextStyle(color: Colors.black),
+        ),
         backgroundColor: Colors.white,
       ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                  child: MyCard(FemaleColor,
-                      ReusableColumn(FontAwesomeIcons.venus, 'مونث'), () {
-                    setState(() {
-                      UpdateColor(GenderType.Female);
-                    });
-                  }),
-                ),
-                Expanded(
-                  child: MyCard(
-                      MaleColor, ReusableColumn(FontAwesomeIcons.mars, 'مذکر'),
-                      () {
-                    setState(() {
-                      UpdateColor(GenderType.Male);
-                    });
-                  }),
-                ),
-              ],
-            )),
-            Expanded(
-              child: MyCard(
-                  InActiveColor,
-                  Column(
-                    //crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'قد',
-                        style: LableStyle,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            height.toString(),
-                            style: NumberStyle,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            'سانتی متر',
-                            style: LableStyle,
-                          )
-                        ],
-                      ),
-                      SliderTheme(
-                        data: SliderTheme.of(context).copyWith(
-                          inactiveTrackColor: Color(0xff8d8e98),
-                          thumbShape:
-                              RoundSliderThumbShape(enabledThumbRadius: 15),
-                          overlayShape:
-                              RoundSliderOverlayShape(overlayRadius: 30),
-                          overlayColor: Color(0x29eb1555),
-                          thumbColor: Color(0xffeb1555),
-                          activeTrackColor: Colors.white,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+              child: Row(
+            children: [
+              Expanded(
+                child: MyCard(
+                    Color(0xFF9C27B0), ReusableColumn(FontAwesomeIcons.venus, 'مونث'),
+                    () {
+                  setState(() {
+                    UpdateColor(GenderType.Female);
+                  });
+                }),
+              ),
+              Expanded(
+                child: MyCard(
+                    Color(0xFF9C27B0), ReusableColumn(FontAwesomeIcons.mars, 'مذکر'),
+                    () {
+                  setState(() {
+                    UpdateColor(GenderType.Male);
+                  });
+                }),
+              ),
+            ],
+          )),
+          Expanded(
+            child: MyCard(
+                InActiveColor,
+                Column(
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'قد',
+                      style: LableStyle,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          height.toString(),
+                          style: NumberStyle,
                         ),
-                        child: Slider(
-                          onChanged: (double value) {
-                            setState(() {
-                              height = value.toInt();
-                            });
-                          },
-                          value: height.toDouble(),
-                          max: 220,
-                          min: 120,
-                          //activeColor: Colors.white,
+                        SizedBox(
+                          width: 5,
                         ),
+                        Text(
+                          'سانتی متر',
+                          style: LableStyle,
+                        )
+                      ],
+                    ),
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        inactiveTrackColor: Color(0xff8d8e98),
+                        thumbShape:
+                            RoundSliderThumbShape(enabledThumbRadius: 15),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30),
+                        overlayColor: Color(0x29eb1555),
+                        thumbColor: Color(0xffeb1555),
+                        activeTrackColor: Colors.white,
                       ),
-                    ],
-                  ),
-                  () {}),
-            ),
-            Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                  child: MyCard(
-                      InActiveColor,
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'وزن',
-                            style: LableStyle,
-                          ),
-                          Text(
-                            weight.toString(),
-                            style: NumberStyle,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              RoundIconButton(
-                                child: FontAwesomeIcons.minus,
-                                clicks: () {
-                                  setState(() {
-                                    if (weight > 10) {
-                                      weight--;
-                                    }
-                                  });
-                                },
-                              ),
-                              RoundIconButton(
-                                child: FontAwesomeIcons.plus,
-                                clicks: () {
-                                  setState(() {
-                                    weight++;
-                                  });
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
+                      child: Slider(
+                        onChanged: (double value) {
+                          setState(() {
+                            height = value.toInt();
+                          });
+                        },
+                        value: height.toDouble(),
+                        max: 220,
+                        min: 120,
+                        //activeColor: Colors.white,
                       ),
-                      () {}),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: MyCard(
-                      InActiveColor,
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'سن',
-                            style: LableStyle,
-                          ),
-                          Text(
-                            Age.toString(),
-                            style: NumberStyle,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              RoundIconButton(
-                                child: FontAwesomeIcons.minus,
-                                clicks: () {
-                                  setState(() {
-                                    if (Age > 1) {
-                                      Age--;
-                                    }
-                                  });
-                                },
-                              ),
-                              RoundIconButton(
-                                child: FontAwesomeIcons.plus,
-                                clicks: () {
-                                  setState(() {
-                                    Age++;
-                                  });
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      () {}),
-                ),
-              ],
-            )),
-            GestureDetector(
-              onTap: () {
-                Calculator_brain calc = Calculator_brain(height, weight);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ResultPage(
-                            bmi_result: calc.CalculateBMI(),
-                            ResultText: calc.getresults(),
-                            interpretation: calc.getinterpretation(),
-                          )),
-                );
-              },
-              child: Container(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                color: Color(0xFFEB1555),
-                margin: EdgeInsets.only(top: 10),
-                width: double.infinity,
-                height: bottomheight,
-                child: Center(
-                    child: Text(
+                () {}),
+          ),
+          Expanded(
+              child: Row(
+            children: [
+              Expanded(
+                child: MyCard(
+                    InActiveColor,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'وزن',
+                          style: LableStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: NumberStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            RoundIconButton(
+                              child: FontAwesomeIcons.minus,
+                              clicks: () {
+                                setState(() {
+                                  if (weight > 10) {
+                                    weight--;
+                                  }
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              child: FontAwesomeIcons.plus,
+                              clicks: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    () {}),
+              ),
+              Expanded(
+                child: MyCard(
+                    InActiveColor,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'سن',
+                          style: LableStyle,
+                        ),
+                        Text(
+                          Age.toString(),
+                          style: NumberStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            RoundIconButton(
+                              child: FontAwesomeIcons.minus,
+                              clicks: () {
+                                setState(() {
+                                  if (Age > 1) {
+                                    Age--;
+                                  }
+                                });
+                              },
+                            ),
+                            RoundIconButton(
+                              child: FontAwesomeIcons.plus,
+                              clicks: () {
+                                setState(() {
+                                  Age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    () {}),
+              ),
+            ],
+          )),
+          GestureDetector(
+            onTap: () {
+              Calculator_brain calc = Calculator_brain(height, weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                          bmi_result: calc.CalculateBMI(),
+                          ResultText: calc.getresults(),
+                          interpretation: calc.getinterpretation(),
+                        )),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 15),
+              color: Color(0xFFAD1457),
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: bottomheight,
+              child: Center(
+                child: Text(
                   'محاسبه کن !',
                   style: TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'yekan'),
-                      textDirection: TextDirection.rtl,
-                ),
-              
+                  textDirection: TextDirection.rtl,
                 ),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -268,7 +273,7 @@ class RoundIconButton extends StatelessWidget {
       child: Icon(child),
       constraints: BoxConstraints.tightFor(
         width: 56,
-        height: 56,
+        height: 45,
       ),
       elevation: 6,
       disabledElevation: 6,
