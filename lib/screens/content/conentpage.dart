@@ -126,7 +126,7 @@ class ArticlePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "دسته بندی: "+this.category,
+                        this.category!=""?"دسته بندی: "+this.category:"دسته بندی: بدون دسته بندی",
                         style: TextStyle(
                           fontSize: 16.0, // اندازه متن عنوان
                           fontWeight: FontWeight.w400,

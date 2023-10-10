@@ -116,8 +116,8 @@ class DiffStyles extends StatelessWidget {
         Positioned(
           right: 0,
           top: 0,
-          //  width: size.width * 0.3,
-          //     height: size.height * 0.2,
+           width: size.width * 0.3,
+           height: size.height * 0.2,
           child: Container(
             child: CachedNetworkImage(
               width: size.width * 0.3,
