@@ -120,7 +120,7 @@ class DiffStyles extends StatelessWidget {
            height: size.height * 0.2,
           child: Container(
             child: CachedNetworkImage(
-              width: size.width * 0.3,
+              width: size.width * 0.4,
               height: size.height * 0.2,
               imageUrl: style['pic'],
               errorWidget: (context, url, error) => Icon(Icons.error),

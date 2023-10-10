@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //Hello How are you
-      home: IntroPages(),
+      home: SplashPage(),
     );
   }
 }

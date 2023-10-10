@@ -1,5 +1,7 @@
+import 'package:fitnass/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 
 class IntroWidget extends StatelessWidget {
@@ -36,10 +38,13 @@ class IntroWidget extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text(
-          'بیخیال',
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+        title: GestureDetector(
+          onTap: ()=>Get.off(()=>LoginScreen()),
+          child: const Text(
+            'بیخیال',
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
         ),
       ),
       body: Stack(
