@@ -27,7 +27,7 @@ class _IntroPageState extends State<IntroPage> {
     listContentConfig.add(
       const ContentConfig(
         title: "PENCIL",
-        description:
+        description: 
             "Ye indulgence unreserved connection alteration appearance",
         pathImage: "images/photo_pencil.png",
         backgroundColor: Color(0xff203152),
