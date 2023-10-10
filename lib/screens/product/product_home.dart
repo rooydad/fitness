@@ -1,4 +1,5 @@
 import 'package:fitnass/constants/constants.dart';
+import 'package:fitnass/screens/cart/cart.dart';
 import 'package:fitnass/screens/product/controllers/shop_controller.dart';
 import 'package:fitnass/screens/product/product_detail.dart';
 import 'package:flutter/material.dart';
@@ -20,25 +21,32 @@ class ShopPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(width: 10),
-            Stack(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.cartShopping,
-                  color: Colors.blue,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(30.0)),
-                  child: const Padding(
-                    padding: EdgeInsets.all(4.0),
-                    child: Text(
-                      '0',
-                      style: TextStyle(color: white, fontSize: 8),
-                    ),
+            GestureDetector(
+              onTap: (){
+                Get.to(()=>CartPage());
+              },
+              child: Stack(
+                children: [
+                  const FaIcon(
+                    FontAwesomeIcons.cartShopping,
+                    color: Colors.blue,
                   ),
-                )
-              ],
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(30.0)),
+                    child:  Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Obx(()=>
+                         Text(
+                          controller.cart_count.value,
+                          style: TextStyle(color: white, fontSize: 8),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
