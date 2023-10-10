@@ -3,6 +3,7 @@ import 'package:fitnass/screens/chat/controller/answers_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AnswersPage extends StatelessWidget {
   AnswerController controller = Get.put(AnswerController());
 

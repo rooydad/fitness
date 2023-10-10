@@ -1,5 +1,3 @@
-import 'package:fitnass/screens/home/home_screen.dart';
-import 'package:fitnass/screens/login/login_screen.dart';
 import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;

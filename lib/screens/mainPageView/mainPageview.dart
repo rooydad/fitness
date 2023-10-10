@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 
+// ignore: must_be_immutable
 class MainPageView extends StatelessWidget {
   PageViewController controller = Get.put(PageViewController());
 
@@ -36,7 +37,7 @@ class MainPageView extends StatelessWidget {
               size: 30,
               color: controller.selsctedIconIndex == 1 ? white : black,
             ),
-            FaIcon(FontAwesomeIcons.home,size: 30,),
+            FaIcon(FontAwesomeIcons.house,size: 30,),
             Icon(
               Icons.category,
               size: 30,

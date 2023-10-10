@@ -1,121 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/content/controllers/content_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
 
+// ignore: must_be_immutable
 class ArticlePage extends StatelessWidget {
-    Widget _buildCourses(BuildContext context,String image,String title,String level, String time ) {
-    Size size = MediaQuery.of(context).size;
-
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: appPadding, vertical: appPadding / 2),
-      child: Container(
-        height: size.height * 0.2,
-        decoration: BoxDecoration(
-            color: white,
-            borderRadius: BorderRadius.circular(30.0),
-            boxShadow: [
-              BoxShadow(
-                  color: black.withOpacity(0.3),
-                  blurRadius: 30.0,
-                  offset: Offset(10, 15))
-            ]),
-        child: Padding(
-          padding: const EdgeInsets.all(appPadding),
-          child: Row(
-            children: [
-              Container(
-                width: size.width * 0.4,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      right: appPadding / 2, top: appPadding / 1.5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.fade,
-                        textDirection: TextDirection.rtl,
-                      ),
-                      SizedBox(
-                        height: size.height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            level=="Yes"?"سطح: مقدماتی":"سطح: پیشرفته",
-                            style: TextStyle(
-                              color: black.withOpacity(0.3),
-                            ),
-                            overflow: TextOverflow.fade,
-                            textDirection: TextDirection.rtl,
-                          ),
-                          SizedBox(
-                            width: size.width * 0.01,
-                          ),
-                          Icon(
-                            Icons.folder_open_rounded,
-                            color: black.withOpacity(0.3),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: size.height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            time.toString() + ' دقیقه',
-                            style: TextStyle(
-                              color: black.withOpacity(0.3),
-                            ),
-                            overflow: TextOverflow.fade,
-                            textDirection: TextDirection.rtl,
-                          ),
-                          SizedBox(
-                            width: size.width * 0.01,
-                          ),
-                          Icon(
-                            Icons.access_time_outlined,
-                            color: black.withOpacity(0.3),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  width: size.width * 0.3,
-                  height: size.height * 0.2,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image(
-                      image: CachedNetworkImageProvider(image),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   final String title;
   final String headerUrl;

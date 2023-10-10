@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ProfilePage extends StatelessWidget {
   
   ProfileController controller = Get.put(ProfileController());
