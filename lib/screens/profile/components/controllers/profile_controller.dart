@@ -1,11 +1,7 @@
-import 'package:fitnass/main.dart';
-import 'package:fitnass/screens/splash/splashscreen.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:http/http.dart' as http;
-import 'dart:io';
 import 'package:http_parser/http_parser.dart';
 import 'package:fitnass/constants/const.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,4 +1,3 @@
-import 'package:fitnass/cart/cart.dart';
 import 'package:fitnass/screens/content/conentpage.dart';
 import 'package:fitnass/screens/intro/intro_slider.dart';
 import 'package:fitnass/screens/mainPageView/mainPageview.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //Hello How are you
-      home: CartPage(),
+      home: SplashPage(),
     );
   }
 }

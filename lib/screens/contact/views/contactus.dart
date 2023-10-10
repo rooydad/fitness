@@ -12,8 +12,6 @@ class _State extends State<ContactUs> {
   Widget build(BuildContext context) {
     final _height =
         MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
-
-    final _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -160,7 +158,7 @@ class _State extends State<ContactUs> {
 _launchURLLinkedIn() async {
   const url = 'https://t.me/AmirrezaKhezerlou';
   if (await canLaunch(url)) {
-    await launch(url);
+    await launchUrl (Uri.parse(url));
   } else {
     throw 'Could not launch $url';
   }
@@ -168,8 +166,9 @@ _launchURLLinkedIn() async {
 
 _launchURLFacebook() async {
   const url = 'https://instagram.com/cleancode_ir';
+  // ignore: deprecated_member_use
   if (await canLaunch(url)) {
-    await launch(url);
+    await launchUrl (Uri.parse(url));
   } else {
     throw 'Could not launch $url';
   }
@@ -188,6 +187,6 @@ await FlutterEmailSender.send(email);
 
 _launchCaller() async {
   const url = "tel:+989382729583";
-    await launch(url);
+    await launchUrl (Uri.parse(url));
    
 }

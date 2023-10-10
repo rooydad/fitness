@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
 import '/constants/constants.dart';
 
+// ignore: must_be_immutable
 class Courses extends StatelessWidget {
   CoursesController controller = Get.put(CoursesController());
   Widget _buildCourses(BuildContext context, int index) {
