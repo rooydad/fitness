@@ -9,20 +9,22 @@ class HomeScreen extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      extendBody: true,
-      body: Padding(
-        padding: const EdgeInsets.only(top: appPadding * 2),
-        child: 
-           Column(
-            children: [
-              CustomAppBar(),
-              DiffStyles(),
-              Courses(),
-            ],
-          ),
-        
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        extendBody: true,
+        body: Padding(
+          padding: const EdgeInsets.only(top: appPadding * 2),
+          child: 
+             Column(
+              children: [
+                CustomAppBar(),
+                DiffStyles(),
+                Courses(),
+              ],
+            ),
+          
+        ),
       ),
     );
   }
