@@ -47,13 +47,13 @@ class IntroPageThree extends StatelessWidget {
                 height: 50.0,
               ),
               Center(
-                child: Image.asset(urlImage!, width: width * 0.8),
+                child: Image.asset(urlImage!, width: width * 0.8,height: 200,),
               ),
               const SizedBox(
                 height: 30,
               ),
-              const Text(
-                'حمایت از مصرف کننده',
+               Text(
+                title!,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
               const SizedBox(

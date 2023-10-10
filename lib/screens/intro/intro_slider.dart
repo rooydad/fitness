@@ -3,9 +3,7 @@ import 'package:fitnass/screens/intro/widgets/intro_three.dart';
 import 'package:fitnass/screens/intro/widgets/page_view_intro.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:spana_app/features/intro/presentation/views/home.dart';
-import 'package:spana_app/features/intro/presentation/widgets/page_three_pageview.dart';
-import 'package:spana_app/features/intro/presentation/widgets/pageview_widget.dart';
+
 
 class IntroPages extends StatefulWidget {
   const IntroPages({Key? key}) : super(key: key);
@@ -35,10 +33,10 @@ class _IntroPagesState extends State<IntroPages> {
                       IntroWidget(
                         pageController: pageController,
                         page: 1,
-                        urlImage: 'assets/images/intro1.png',
-                        title: 'حمایت از مصرف کننده',
-                        text1: 'تضمین مطابق بودن کالا با عکس کالا و توضیحات',
-                        text2: 'تعهد ارسال به موقع توسط تولید کننده',
+                        urlImage: 'assets/images/pose1.png',
+                        title: 'رسیدن به قله پیروزی آسان است',
+                        text1: 'همه چیز به خودت بستگی دارد',
+                        text2: 'زندگی خودت را بساز',
                         widget: const Text(
                           'بعدی',
                           style: TextStyle(
@@ -50,10 +48,10 @@ class _IntroPagesState extends State<IntroPages> {
                       IntroWidget(
                         pageController: pageController,
                         page: 2,
-                        urlImage: 'assets/images/intro2.png',
-                        title: 'ارتباط مستقیم با تولید کننده',
-                        text1: 'دریافت اطلاعات درباره محصول',
-                        text2: 'سفارش سازی محصول',
+                        urlImage: 'assets/images/pose2.png',
+                        title: 'ورزش ضامن سلامت شماست',
+                        text1: 'تلاش کنیم رکورد خود را بشکنیم نه رکورد دیگران را',
+                        text2: 'چیزی را که ذهن قبول کرده، بدن به دستش می‌آورد',
                         widget: const Text(
                           'بعدی',
                           style: TextStyle(
@@ -64,10 +62,10 @@ class _IntroPagesState extends State<IntroPages> {
                       ),
                        IntroPageThree(
                         nextPage: HomeScreen(),
-                        urlImage: 'assets/images/intro3.png',
-                        title: 'پرداخت امن اسپانا',
-                        text1: 'بازگشت وجه در صورت عدم رضایت از محصول',
-                        text2: 'آزاد کردن وجه برای فروشنده بعد از تحویل کالا',
+                        urlImage: 'assets/images/pose3.png',
+                        title: 'ورزش چیزی جز یک معجزه نیست',
+                        text1: 'تنها ورزش کردن است که روحیه را تقویت می کند',
+                        text2: 'ورزش برای تحرک داشتنه، نه نابود کردن',
                         widget: Icon(
                           Icons.home,
                           size: 30,

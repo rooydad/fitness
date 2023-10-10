@@ -50,7 +50,7 @@ class IntroWidget extends StatelessWidget {
                 height: 50.0,
               ),
               Center(
-                child: Image.asset(urlImage!, width: width * 0.8),
+                child: Image.asset(urlImage!, width: width * 0.8,height: 200,),
               ),
               const SizedBox(
                 height: 30,
