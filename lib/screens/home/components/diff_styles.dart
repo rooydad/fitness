@@ -93,6 +93,7 @@ class DiffStyles extends StatelessWidget {
                               time: controller.data[index]['time'],
                               content: controller.data[index]['content'],
                               level: controller.data[index]['is_beginner'],
+                              tool: controller.data[index]['tool'],
                             ),
                           );
                         },

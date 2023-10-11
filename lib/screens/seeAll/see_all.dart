@@ -22,6 +22,7 @@ class SeeAllPage extends StatelessWidget {
             time: style['time'],
             content: style['content'],
             level: style['is_beginner'],
+            tool: style['tool'],
           ),
         );
       },

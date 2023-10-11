@@ -25,6 +25,7 @@ class Courses extends StatelessWidget {
             time: style['time'],
             content: style['content'],
             level: style['is_beginner'],
+            tool: style['tool'],
           ),
         );
       },
@@ -125,7 +126,7 @@ class Courses extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0),
                       child: Image(
                         image: CachedNetworkImageProvider(style['wallpaper']),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),

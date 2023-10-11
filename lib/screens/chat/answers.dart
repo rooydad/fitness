@@ -17,20 +17,21 @@ class AnswersPage extends StatelessWidget {
       ),
       body:controller.messages.length==0?Center(child: Text("پاسخی از سوی پشتیبانی یافت نشد"),): Padding(
         padding: const EdgeInsets.only(left:1,top: 20),
-        child: Obx(()=>
+        child:
            ListView.builder(
             itemCount: controller.messages.length,
             itemBuilder: (context,index){
-            return BubbleSpecialThree(
-        text: controller.messages[index]['message'],
-        color: Color(0xFFE8E8EE),
-        textStyle: TextStyle(fontFamily: "yekan"),
-        seen: true,
-        tail: false,
-        isSender: false,
-      );
+            return Obx(()=>
+              BubbleSpecialThree(
+                    text: controller.messages[index]['message'],
+                    color: Color(0xFFE8E8EE),
+                    textStyle: TextStyle(fontFamily: "yekan"),
+                    tail: false,
+                    isSender: false,
+                  ),
+            );
           }),
-        ),
+        
       ),
     );
   }

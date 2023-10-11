@@ -17,7 +17,7 @@ class DetailController extends GetxController {
     var request = await http.post(Uri.parse(url), body: values);
     if (request.statusCode == 200) {
       Get.defaultDialog(
-          title: "افزودن به سبد خرید",
+          title: "باموفقیت افزوده شد",
           content: Column(
             children: [
               Lottie.asset("assets/images/done.json"),

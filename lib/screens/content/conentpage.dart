@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitnass/screens/content/controllers/content_controller.dart';
+import 'package:fitnass/screens/product/product_home.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,6 @@ import 'package:persian_number_utility/persian_number_utility.dart';
 
 // ignore: must_be_immutable
 class ArticlePage extends StatelessWidget {
-
   final String title;
   final String headerUrl;
   final String writer;
@@ -15,7 +15,16 @@ class ArticlePage extends StatelessWidget {
   final String time;
   final String content;
   final String level;
-  ArticlePage({super.key, required this.title, required this.headerUrl, required this.writer, required this.category, required this.time, required this.content, required this.level});
+  final String tool;
+  ArticlePage(
+      {super.key,
+      required this.title,
+      required this.headerUrl,
+      required this.writer,
+      required this.category,
+      required this.time,
+      required this.content,
+      required this.level, required this.tool});
 
   ContentController controller = Get.put(ContentController());
   @override
@@ -38,7 +47,11 @@ class ArticlePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   height: 200, // ارتفاع عکس مقاله
-                  child: CachedNetworkImage(imageUrl: this.headerUrl,width: size.width,height: 200,),
+                  child: CachedNetworkImage(
+                    imageUrl: this.headerUrl,
+                    width: size.width,
+                    height: 200,
+                  ),
                 ),
                 SizedBox(
                   height: 60,
@@ -49,14 +62,16 @@ class ArticlePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       SizedBox(
-                    height: 20.0,
-                    child: Image.asset(
-                      'assets/images/verified.png',
-                    ),
-                  ),
-                  SizedBox(width: 3,),
+                        height: 20.0,
+                        child: Image.asset(
+                          'assets/images/verified.png',
+                        ),
+                      ),
+                      SizedBox(
+                        width: 3,
+                      ),
                       Text(
-                     "مربی: "+this.writer,
+                        "مربی: " + this.writer,
                         style: TextStyle(
                           fontSize: 16.0, // اندازه متن عنوان
                           fontWeight: FontWeight.w400,
@@ -79,7 +94,7 @@ class ArticlePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                       "زمان اجرا: "+this.time.toPersianDigit()+" دقیقه",
+                        "زمان اجرا: " + this.time.toPersianDigit() + " دقیقه",
                         style: TextStyle(
                           fontSize: 16.0, // اندازه متن عنوان
                           fontWeight: FontWeight.w400,
@@ -102,7 +117,7 @@ class ArticlePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                       this.level=="Yes"?"سطح: ابتدایی":"سطح: پیشرفته",
+                        this.level == "Yes" ? "سطح: ابتدایی" : "سطح: پیشرفته",
                         style: TextStyle(
                           fontSize: 16.0, // اندازه متن عنوان
                           fontWeight: FontWeight.w400,
@@ -119,26 +134,33 @@ class ArticlePage extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                 Padding(
+                Padding(
                   padding: EdgeInsets.only(right: 16, left: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        this.category!=""?"دسته بندی: "+this.category:"دسته بندی: بدون دسته بندی",
+                        this.category != ""
+                            ? "دسته بندی: " + this.category
+                            : "دسته بندی: بدون دسته بندی",
                         style: TextStyle(
                           fontSize: 16.0, // اندازه متن عنوان
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      SizedBox(width: 7,),
-                      FaIcon(FontAwesomeIcons.tag,color: Colors.grey,size: 20,),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.tag,
+                        color: Colors.grey,
+                        size: 20,
+                      ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.only(bottom: 16),
                   child: Text(
                     this.content.toString(),
                     style: TextStyle(
@@ -149,6 +171,7 @@ class ArticlePage extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                   ),
                 ),
+               
               ],
             ),
             Positioned(
@@ -180,16 +203,24 @@ class ArticlePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () {controller.ShareContent(this.content);},
+            heroTag: "tag2",
+            onPressed: () {
+              controller.ShareContent(this.content);
+            },
             child: FaIcon(
               FontAwesomeIcons.shareNodes,
               color: Colors.white,
             ),
             backgroundColor: Colors.red,
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           FloatingActionButton(
-            onPressed: () {controller.show_timer(this.time);},
+            heroTag: "tag1",
+            onPressed: () {
+              controller.show_timer(this.time);
+            },
             child: FaIcon(
               FontAwesomeIcons.clock,
               color: Colors.black,
@@ -198,6 +229,21 @@ class ArticlePage extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: Visibility(
+        visible: this.tool=="Yes"?true:false,
+        child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                        backgroundColor: Colors.green,
+                        padding: EdgeInsets.only(right: 40,left: 40,top: 10,bottom: 10),
+                      ),
+                      onPressed: () {Get.to(()=>ShopPage());},
+                      child: Text('خرید لوازم مورد نیاز تمرین'),
+                    ),
+                  ),
+      ) ,
     );
   }
 }
