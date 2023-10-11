@@ -4,20 +4,15 @@ import 'package:get/get.dart';
 import 'package:fitnass/constants/const.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
+
 
 class SignupController extends GetxController {
-  @override
-  void onInit() {
-   addItems();
-   Future.delayed(Duration.zero, showTutorial);
-    super.onInit();
-  }
+
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   GlobalKey key1 = GlobalKey();
-List<TargetFocus> targets = [];
+
   void DoSignUp() async {
     String email = emailController.text;
     String password = passwordController.text;
@@ -65,18 +60,5 @@ List<TargetFocus> targets = [];
     }
   }
 
-void addItems(){
-  targets.add(
-    TargetFocus(
-    identify: "FirstOne",
-    keyTarget: key1,
-    contents:[ TargetContent(
-      align: ContentAlign.right,
-      child: Center(child: Text('data'),),),],
-  ));
-}
-  void showTutorial()async{
-     TutorialCoachMark tutorial = TutorialCoachMark(targets: targets,
-     colorShadow: Colors.blue)..show(context: Get.context!);
-  }
+
 }

@@ -7,20 +7,32 @@ import 'package:flutter/material.dart';
 
 
 // ignore: must_be_immutable
-class MainPageView extends StatelessWidget {
+class MainPageView extends StatefulWidget {
+  @override
+  State<MainPageView> createState() => _MainPageViewState();
+}
+
+class _MainPageViewState extends State<MainPageView> {
   PageViewController controller = Get.put(PageViewController());
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return Obx(()=>
        Scaffold(
         body: PageView(
+          onPageChanged: (index) => controller.onViewChange(index),
           controller: controller.controllerofPageview,
+
+
           children: controller.Pageslist,
         ),
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.transparent,
-          
+
           index: controller.selsctedIconIndex.value,
           buttonBackgroundColor: primary,
           height: 75.0,

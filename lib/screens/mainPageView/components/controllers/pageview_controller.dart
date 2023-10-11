@@ -10,6 +10,7 @@ class PageViewController extends GetxController {
   RxInt selsctedIconIndex = 2.obs;
 
   PageController controllerofPageview = PageController(initialPage: 2);
+
   List<Widget> Pageslist = <Widget>[
     ChatPage(),
     ShopPage(),
@@ -22,5 +23,9 @@ class PageViewController extends GetxController {
     selsctedIconIndex.value = newindex;
     controllerofPageview.animateToPage(newindex,
         duration: Duration(milliseconds: 300), curve: Curves.ease);
+  }
+
+  void onViewChange(int index){
+    selsctedIconIndex.value = index;
   }
 }
