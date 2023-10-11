@@ -42,8 +42,14 @@ RxString cart_count = '-'.obs;
     };
     var request = await http.post(Uri.parse(url), body: values);
     if (request.statusCode == 200) {
+      print("reult is:"+request.body);
+      if(request.body !="empty"&&request.body !=""){
       List result = List<Map<String, dynamic>>.from(json.decode(request.body));
       return result;
+      }else{
+        return [];
+      }
+
     } else {
       Get.snackbar("خطا", "مشکلی در ارتباط با سرور پیش آمده");
       return [];

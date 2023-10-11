@@ -1,19 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/content/conentpage.dart';
-import 'package:fitnass/screens/home/components/controllers.dart/courses_controller.dart';
-import 'package:fitnass/screens/seeAll/see_all.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnass/screens/seeAll/components/seeAll_controller.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '/constants/constants.dart';
 
-// ignore: must_be_immutable
-class Courses extends StatelessWidget {
-  CoursesController controller = Get.put(CoursesController());
+class SeeAllPage extends StatelessWidget {
+  SeeAllController controller = Get.put(SeeAllController());
   Widget _buildCourses(BuildContext context, int index) {
     Size size = MediaQuery.of(context).size;
-    var style = controller.courses[index];
+    var style = controller.data[index];
     return GestureDetector(
       onTap: () {
         Get.to(
@@ -32,7 +29,6 @@ class Courses extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             horizontal: appPadding, vertical: appPadding / 2),
         child: Container(
-          
           decoration: BoxDecoration(
               color: white,
               borderRadius: BorderRadius.circular(30.0),
@@ -141,54 +137,23 @@ class Courses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: appPadding,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: ()async{
-                                SharedPreferences _prefs = await SharedPreferences.getInstance();
-            final SharedPreferences prefs = await _prefs;
-            prefs.setString("params", "all");
-            Get.to(()=>SeeAllPage());
-                  },
-                  child: Text(
-                    'مشاهده همه',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                        color: primary),
-                  ),
-                ),
-                Text(
-                  'حرفه‌ای باش',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Obx(
-            () => Expanded(
-                child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: controller.courses.length,
-              itemBuilder: (context, index) {
-                return _buildCourses(context, index);
-              },
-            )),
-          )
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          'مشاهده همه',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Obx(
+        () => ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemCount: controller.data.length,
+          itemBuilder: (context, index) {
+            return _buildCourses(context, index);
+          },
+        ),
       ),
     );
   }

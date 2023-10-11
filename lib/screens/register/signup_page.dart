@@ -12,7 +12,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -23,7 +22,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BackgroundImg(),
                 SignUpCredentials(),
-
               ],
             ),
             CircleButtonReg(),

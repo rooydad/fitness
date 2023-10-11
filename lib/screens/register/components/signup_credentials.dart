@@ -16,7 +16,8 @@ class SignUpCredentials extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          const Text(
+           Text(
+            key:controller.key1,
             'لطفا ثبت نام کنید',
             style: TextStyle(
               fontSize: 24,

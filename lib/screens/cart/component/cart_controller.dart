@@ -12,7 +12,7 @@ class CartController extends GetxController {
   RxInt totalPrice = 0.obs;
   @override
   void onInit() {
-    fetch_data().then((value){
+    fetch_data().then((value) {
       cartList.clear();
       cartList.addAll(value);
     });
@@ -30,38 +30,47 @@ class CartController extends GetxController {
     };
     var request = await http.post(Uri.parse(url), body: values);
     if (request.statusCode == 200) {
+      if(request.body !="" && request.body !="empty"){
       List result = List<Map<String, dynamic>>.from(json.decode(request.body));
       return result;
+      }else{
+        return [];
+      }
+
     } else {
       Get.snackbar("خطا", "مشکلی در ارتباط با سرور پیش آمده");
       return [];
     }
   }
 
-  Future<int>fetchPrice()async{
+  Future<int> fetchPrice() async {
     SharedPreferences _prefs = await SharedPreferences.getInstance();
     final SharedPreferences prefs = await _prefs;
     String user_email = prefs.getString("email")!;
     final url = mainAddress + get_total_price;
     var values = {
-      "email":user_email,
+      "email": user_email,
     };
-    var request = await http.post(Uri.parse(url),body: values);
-    if(request.statusCode==200){
-     return totalPrice.value =int.parse(request.body.toString());
-    }else{
+    var request = await http.post(Uri.parse(url), body: values);
+    if (request.statusCode == 200) {
+      if (request.body != "empty"&&request.body!="") {
+        print(request.body);
+        return totalPrice.value = int.parse(request.body.toString());
+      } else {
+        return 0;
+      }
+    } else {
       Get.snackbar("خطا", "خطا در ارتباط با سرور");
       return 0;
     }
-
   }
 
-  void ShowFinalDialog()async{
+  void ShowFinalDialog() async {
     Get.defaultDialog(
       title: "خرید نهایی",
       content: Column(
         children: [
-                   Material(
+          Material(
             elevation: 10.0,
             color: white,
             borderRadius: BorderRadius.circular(30.0),
@@ -71,7 +80,7 @@ class CartController extends GetxController {
               minLines: 4,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(borderSide: BorderSide.none),
-                contentPadding:  EdgeInsets.symmetric(
+                contentPadding: EdgeInsets.symmetric(
                     vertical: appPadding * 0.75, horizontal: appPadding),
                 fillColor: white,
                 hintText: 'آدرس دقیق',

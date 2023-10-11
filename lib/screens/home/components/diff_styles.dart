@@ -33,8 +33,8 @@ class DiffStyles extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                       color: black.withOpacity(0.3),
-                      blurRadius: 20.0,
-                      offset: Offset(5, 15))
+                      blurRadius: 10.0,
+                      offset: Offset(7, 7))
                 ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

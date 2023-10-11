@@ -20,6 +20,7 @@ class MainPageView extends StatelessWidget {
         ),
         bottomNavigationBar: CurvedNavigationBar(
           backgroundColor: Colors.transparent,
+          
           index: controller.selsctedIconIndex.value,
           buttonBackgroundColor: primary,
           height: 75.0,

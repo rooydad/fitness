@@ -11,3 +11,4 @@ const get_special = "/fitness/get_special.php";
 const add_cart = "/fitness/add_cart.php";
 const get_carts = "/fitness/get_carts.php";
 const get_total_price = "/fitness/get_cart_price.php";
+const get_all = "/fitness/get_all.php";

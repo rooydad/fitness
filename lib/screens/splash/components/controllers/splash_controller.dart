@@ -1,3 +1,4 @@
+import 'package:fitnass/screens/intro/intro_slider.dart';
 import 'package:fitnass/screens/mainPageView/mainPageview.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -19,7 +20,7 @@ class SplashController extends GetxController {
       update_profile_again();
     } else {
       new Future.delayed(const Duration(seconds: 3), () {
-        Get.off(() => IntroSlider());
+        Get.off(() => IntroPages());
       });
     }
   }
@@ -31,6 +32,7 @@ class SplashController extends GetxController {
     String email = await prefs.getString("email")!;
     var Values = {"email": email};
     var request = await http.post(Uri.parse(url), body: Values);
+    print(request.body);
     if (request.statusCode == 200 && request.body != "UserNotFound") {
       if(request.body !="No"){
       await prefs.setString("profile", request.body);

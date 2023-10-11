@@ -69,18 +69,18 @@ class CustomAppBar extends StatelessWidget {
                     Icons.notifications_none_rounded,
                     size: 30.0,
                   ),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //       color: primary,
-                  //       borderRadius: BorderRadius.circular(30.0)),
-                  //   child: const Padding(
-                  //     padding: EdgeInsets.all(4.0),
-                  //     child: Text(
-                  //       '0',
-                  //       style: TextStyle(color: white, fontSize: 8),
-                  //     ),
-                  //   ),
-                  // )
+                  Container(
+                    decoration: BoxDecoration(
+                        color: primary,
+                        borderRadius: BorderRadius.circular(30.0)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Text(
+                        '0',
+                        style: TextStyle(color: white, fontSize: 8),
+                      ),
+                    ),
+                  )
                 ],
               ),
               Transform(

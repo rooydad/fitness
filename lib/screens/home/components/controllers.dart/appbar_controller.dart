@@ -17,5 +17,6 @@ class AppbarController extends GetxController {
     String usersName = prefs.getString('name')!;
     name.value = name.value + usersName;
     profile_picture.value = mainAddress+'/fitness/'+await prefs.getString('profile')!;
+    print(profile_picture.value);
   }
 }
