@@ -32,7 +32,6 @@ class Courses extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
             horizontal: appPadding, vertical: appPadding / 2),
         child: Container(
-          
           decoration: BoxDecoration(
               color: white,
               borderRadius: BorderRadius.circular(30.0),
@@ -153,11 +152,12 @@ class Courses extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: ()async{
-                                SharedPreferences _prefs = await SharedPreferences.getInstance();
-            final SharedPreferences prefs = await _prefs;
-            prefs.setString("params", "all");
-            Get.to(()=>SeeAllPage());
+                  onTap: () async {
+                    SharedPreferences _prefs =
+                        await SharedPreferences.getInstance();
+                    final SharedPreferences prefs = await _prefs;
+                    prefs.setString("params", "all");
+                    Get.to(() => SeeAllPage());
                   },
                   child: Text(
                     'مشاهده همه',
@@ -178,16 +178,15 @@ class Courses extends StatelessWidget {
               ],
             ),
           ),
-          Obx(
-            () => Expanded(
-                child: ListView.builder(
+          Expanded(
+            child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemCount: 3,
               itemBuilder: (context, index) {
-                return _buildCourses(context, index);
+                return Obx(() => _buildCourses(context, index));
               },
-            )),
-          )
+            ),
+          ),
         ],
       ),
     );
