@@ -12,3 +12,4 @@ const add_cart = "/fitness/add_cart.php";
 const get_carts = "/fitness/get_carts.php";
 const get_total_price = "/fitness/get_cart_price.php";
 const get_all = "/fitness/get_all.php";
+const delete_cart = "/fitness/delete_cart.php";

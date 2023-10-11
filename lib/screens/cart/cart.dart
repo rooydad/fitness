@@ -84,6 +84,11 @@ class CartPage extends StatelessWidget {
                               controller.cartList[index]['url']),
                         ),
                       ),
+                      InkWell(
+                        onTap: (){
+                          
+                        },
+                        child: Icon(Icons.delete,color: Colors.red)),
                     ],
                   ),
                 ),
