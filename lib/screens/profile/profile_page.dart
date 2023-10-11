@@ -3,6 +3,7 @@ import 'package:fitnass/constants/const.dart';
 import 'package:fitnass/constants/constants.dart';
 import 'package:fitnass/screens/bmi/input_page.dart';
 import 'package:fitnass/screens/contact/views/contactus.dart';
+import 'package:fitnass/screens/more_profile/more_profile.dart';
 import 'package:fitnass/screens/profile/components/controllers/profile_controller.dart';
 import 'package:fitnass/screens/profile/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -101,15 +102,15 @@ class ProfilePage extends StatelessWidget {
                       ),
                       InkWell(
                         onTap:(){
-                          
+                          //Get.to(()=>More());
                         },
-                        child: BuildOptions(title: 'حالت شب/روز', icon: Icons.settings)),
+                        child: BuildOptions(title: 'تکمیل اطلاعات شخصی', icon: Icons.person_add)),
                       InkWell(
                         onTap: (){
                           Get.to(()=>BmiInputPage());
                         },
                         child: BuildOptions(
-                            title: 'محاسبه BMI', icon: Icons.notifications),
+                            title: 'محاسبه BMI', icon: Icons.calculate),
                       ),
                       InkWell(
                         onTap: (){
