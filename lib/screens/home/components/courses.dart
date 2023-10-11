@@ -182,7 +182,7 @@ class Courses extends StatelessWidget {
             () => Expanded(
                 child: ListView.builder(
               physics: BouncingScrollPhysics(),
-              itemCount: controller.courses.length,
+              itemCount: 3,
               itemBuilder: (context, index) {
                 return _buildCourses(context, index);
               },
